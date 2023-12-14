@@ -15,7 +15,11 @@ int main()
 {
     Node *head = new Node(20);
     Node *a = new Node(100);
+    Node *b = new Node(300);
     head->next = a;
-    cout << head->val << " " << head->next->val << endl;
+    a->next = b;
+    cout << head->val << " " << head->next->val << " " << a->next->val << endl;
+    delete head;
+    delete a;
     return 0;
 }
