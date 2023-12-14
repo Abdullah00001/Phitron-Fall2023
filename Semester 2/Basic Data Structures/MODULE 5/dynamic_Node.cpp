@@ -13,11 +13,9 @@ public:
 };
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    Node a(n);
-    Node b(m);
-    a.next = &b;
-    cout << a.val << " " << a.next->val << endl;
+    Node *head = new Node(20);
+    Node *a = new Node(100);
+    head->next = a;
+    cout << head->val << " " << head->next->val << endl;
     return 0;
 }
