@@ -11,7 +11,7 @@ public:
         this->next = NULL;
     }
 };
-void insert_at_tail(Node *&head, int val)
+void insert_atTAil(Node *&head, int val)
 {
     Node *newNode = new Node(val);
     if (head == NULL)
@@ -26,21 +26,23 @@ void insert_at_tail(Node *&head, int val)
     }
     tmp->next = newNode;
 }
-void print_linkedList(Node *head)
+void printing_LINKEDlist(Node *head)
 {
     Node *tmp = head;
-    cout << "Your Linked List" << endl;
+    cout << "YOUR LINKED LIST" << endl;
     while (tmp != NULL)
     {
         cout << tmp->val << " ";
         tmp = tmp->next;
     }
+    cout << endl;
 }
 int main()
 {
     Node *head = NULL;
     while (true)
     {
+        cout << "PLEASE CHOOSE A OPTION........!" << endl;
         cout << "OPTION 1: INSERT AT TAIL" << endl;
         cout << "OPTION 2: PRINT LINKED LIST" << endl;
         cout << "OPTION 3: TERMINATE" << endl;
@@ -48,19 +50,21 @@ int main()
         cin >> optn;
         if (optn == 1)
         {
+            cout << "YOU CHOOSE OPTION 1:" << endl;
             cout << "PLEASE INSER A VALUE" << endl;
             int val;
             cin >> val;
-            insert_at_tail(head, val);
+            insert_atTAil(head, val);
         }
         else if (optn == 2)
         {
-            print_linkedList(head);
-            cout << endl;
+            cout << "YOU CHOOSE OPTION 2:" << endl;
+            printing_LINKEDlist(head);
         }
         else if (optn == 3)
         {
-            break;
+            cout << "YOU CHOOSE OPTION 3:" << endl;
+            cout << "ALL OPERATION ARE DONE" << endl;
         }
     }
 
