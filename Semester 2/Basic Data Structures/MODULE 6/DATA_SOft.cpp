@@ -25,6 +25,7 @@ void addData(Node *&head, int value)
         tmp = tmp->next;
     }
     tmp->next = addNode;
+    cout << "ADDED SUCCESSFULLY!" << endl;
 }
 void prntDatalst(Node *head)
 {
@@ -89,7 +90,14 @@ int main()
             cin >> pos;
             cout << "INSERT THE VALUE" << endl;
             cin >> new_val;
-            addNewNode(head, pos, new_val);
+            if (pos == 0)
+            {
+                add_OnHead(head, new_val);
+            }
+            else
+            {
+                addNewNode(head, pos, new_val);
+            }
         }
         else if (optn == 4)
         {
