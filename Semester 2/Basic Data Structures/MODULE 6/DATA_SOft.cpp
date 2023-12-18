@@ -17,6 +17,7 @@ void addData(Node *&head, int value)
     if (head == NULL)
     {
         head = addNode;
+        cout << "ADDED SUCCESSFULLY!" << endl;
         return;
     }
     Node *tmp = head;
@@ -45,6 +46,12 @@ void addNewNode(Node *head, int postn, int valu)
     for (int i = 1; i <= postn - 1; i++)
     {
         tmp = tmp->next;
+        if (tmp == NULL)
+        {
+            cout << endl
+                 << "INVALID INDEX" << endl;
+            return;
+        }
     }
     newNode->next = tmp->next;
     tmp->next = newNode;
@@ -63,6 +70,18 @@ void deleteNode(Node *head, int pos)
     for (int i = 1; i < pos - 1; i++)
     {
         tmp = tmp->next;
+        if (tmp == NULL)
+        {
+            cout << endl
+                 << "INVALID INDEX" << endl;
+            return;
+        }
+    }
+    if (tmp->next == NULL)
+    {
+        cout << endl
+             << "INVALID INDEX" << endl;
+        return;
     }
     Node *dltNode = tmp->next;
     tmp->next = tmp->next->next;
@@ -71,6 +90,13 @@ void deleteNode(Node *head, int pos)
 }
 void deleteHead(Node *&head)
 {
+    if (head == NULL)
+    {
+        cout << endl
+             << "HEAD IS NOT AVAILABLE!" << endl;
+        return;
+    }
+
     Node *dltHead = head;
     head = head->next;
     delete dltHead;
@@ -149,6 +175,7 @@ int main()
 
         else if (optn == 7)
         {
+            cout << "PRODUCTION BY ABDULLAH" << endl;
             break;
         }
 
