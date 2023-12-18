@@ -182,11 +182,9 @@ int main()
 
         else if (optn == 7)
         {
-            cout << "PRODUCTION BY ABDULLAH" << endl;
+            cout << "COPYRIGHT 2012 - 2023 ABDULLAH. ALL RIGHTS RESERVED." << endl;
             break;
         }
-
-        cout << "" << endl;
     }
     return 0;
 }
