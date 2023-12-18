@@ -120,10 +120,17 @@ int main()
         cin >> optn;
         if (optn == 1)
         {
-            cout << "ADD A VALUE" << endl;
+            cout << endl
+                 << "ADD VALUES IN A ROW OR COLOUMN" << endl;
+            cout << "AFTER ADDING THE VALUES DONT FORGET TO GIVE A -1 AT THE END" << endl;
             int value;
-            cin >> value;
-            addData(head, value);
+            while (true)
+            {
+                cin >> value;
+                if (value == -1)
+                    break;
+                addData(head, value);
+            }
         }
         else if (optn == 2)
         {
