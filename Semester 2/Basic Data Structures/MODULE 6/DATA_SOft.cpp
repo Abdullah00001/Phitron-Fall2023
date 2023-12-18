@@ -69,6 +69,13 @@ void deleteNode(Node *head, int pos)
     delete dltNode;
     cout << "NODE DELETED" << endl;
 }
+void deleteHead(Node *&head)
+{
+    Node *dltHead = head;
+    head = head->next;
+    delete dltHead;
+    cout << "HEAD IS REMOVED" << endl;
+}
 int main()
 {
     Node *head = NULL;
@@ -79,8 +86,9 @@ int main()
         cout << "OPTION 2 : PRINT THE LINKED LIST" << endl;
         cout << "OPTION 3 : ADD ANOTHER NODE" << endl;
         cout << "OPTION 4 : ADD NEW HEAD" << endl;
-        cout << "OPTION 5 : DELETE NODE" << endl;
-        cout << "OPTION 6 : EXIT" << endl;
+        cout << "OPTION 5 : DELETE HEAD" << endl;
+        cout << "OPTION 6 : DELETE NODE" << endl;
+        cout << "OPTION 7 : EXIT" << endl;
         cout << endl;
         int optn;
         cin >> optn;
@@ -119,15 +127,27 @@ int main()
             cin >> headVal;
             add_OnHead(head, headVal);
         }
-        else if (optn == 5)
+        if (optn == 5)
+        {
+            deleteHead(head);
+        }
+
+        else if (optn == 6)
         {
             int postn;
             cout << "ADD POSITION FOR DELETE" << endl;
             cin >> postn;
-            deleteNode(head, postn);
+            if (postn == 0)
+            {
+                deleteHead(head);
+            }
+            else
+            {
+                deleteNode(head, postn);
+            }
         }
 
-        else if (optn == 6)
+        else if (optn == 7)
         {
             break;
         }
