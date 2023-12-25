@@ -46,6 +46,17 @@ void prntbcwrd(Node *tail)
     }
     cout << endl;
 }
+int nodeSize(Node *head)
+{
+    Node *tmp = head;
+    int cnt = 0;
+    while (tmp != NULL)
+    {
+        cnt++;
+        tmp = tmp->next;
+    }
+    return cnt;
+}
 int main()
 {
     Node *head = new Node(100);
@@ -61,8 +72,16 @@ int main()
     c->prev = b;
     int pos, val;
     cin >> pos >> val;
-    insrtAtPos(head, pos, val);
-    prntfrwrd(head);
-    prntbcwrd(tail);
+    int sz = nodeSize(head);
+    if (pos >= sz)
+    {
+        cout << "INVALID" << endl;
+    }
+    else
+    {
+        insrtAtPos(head, pos, val);
+        prntfrwrd(head);
+        prntbcwrd(tail);
+    }
     return 0;
 }
