@@ -17,8 +17,8 @@ void dltHead(Node *&head)
 {
     Node *delHead = head;
     head = head->next;
-    head->prev = NULL;
     delete delHead;
+    head->prev = NULL;
 }
 void dltNode(Node *head, int pos)
 {
@@ -36,8 +36,8 @@ void dltTail(Node *&tail)
 {
     Node *delTail = tail;
     tail = tail->prev;
-    tail->next = NULL;
     delete delTail;
+    tail->next = NULL;
 }
 void prntfrwrd(Node *head)
 {
@@ -86,13 +86,22 @@ int main()
     c->prev = b;
     c->next = d;
     d->prev = c;
+    // dltTail(tail);
+    // prntfrwrd(head);
+    // prntbcwrd(tail);
     int postn;
     cin >> postn;
     if (postn == 0)
     {
         dltHead(head);
-        prntfrwrd(head);
-        prntbcwrd(tail);
+        // prntfrwrd(head);
+        // prntbcwrd(tail);
+    }
+    else if (postn == nodeSize(head) - 1)
+    {
+        dltTail(tail);
+        // prntfrwrd(head);
+        // prntbcwrd(tail);
     }
     else if (postn > 0)
     {
@@ -103,16 +112,11 @@ int main()
         else
         {
             dltNode(head, postn);
-            prntfrwrd(head);
-            prntbcwrd(tail);
+            // prntfrwrd(head);
+            // prntbcwrd(tail);
         }
     }
-    else if (postn == (nodeSize(head) - 1))
-    {
-        dltTail(tail);
-        prntfrwrd(head);
-        prntbcwrd(tail);
-    }
-
+    prntfrwrd(head);
+    prntbcwrd(tail);
     return 0;
 }
