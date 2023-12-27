@@ -78,6 +78,8 @@ int main()
     Node *c = new Node(60);
     Node *d = new Node(70);
     Node *tail = d;
+    head->next = a;
+    a->prev = head;
     a->next = b;
     b->prev = a;
     b->next = c;
@@ -105,7 +107,7 @@ int main()
             prntbcwrd(tail);
         }
     }
-    else
+    else if (postn == (nodeSize(head) - 1))
     {
         dltTail(tail);
         prntfrwrd(head);
