@@ -46,6 +46,5 @@ int main()
         cout << v.top() << endl;
         v.pop();
     }
-
     return 0;
 }
