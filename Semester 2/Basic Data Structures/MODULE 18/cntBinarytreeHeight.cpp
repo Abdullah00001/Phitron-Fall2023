@@ -13,7 +13,7 @@ public:
         this->right = NULL;
     }
 };
-Node *inputB_Tree()
+Node *inputB_tree()
 {
     int value;
     cin >> value;
@@ -48,22 +48,17 @@ Node *inputB_Tree()
     }
     return root;
 }
-int cntBtree_Nodes(Node *root)
+int mxHeight(Node *root)
 {
     if (root == NULL)
         return 0;
-    if (root->left == NULL && root->right == NULL)
-        return 1;
-    else
-    {
-        int l = cntBtree_Nodes(root->left);
-        int r = cntBtree_Nodes(root->right);
-        return l + r;
-    }
+    int l = mxHeight(root->left);
+    int r = mxHeight(root->right);
+    return max(l, r) + 1;
 }
 int main()
 {
-    Node *root = inputB_Tree();
-    cout << cntBtree_Nodes(root) << endl;
+    Node *root = inputB_tree();
+    cout << mxHeight(root) << endl;
     return 0;
 }
