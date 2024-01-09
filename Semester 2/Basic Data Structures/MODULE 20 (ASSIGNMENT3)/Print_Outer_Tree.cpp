@@ -48,46 +48,48 @@ Node *inputBtree()
     }
     return root;
 }
-vector<int> levelNodes(Node *root, int X)
+void prntLeft(Node *root)
 {
-    vector<int> v;
-    queue<pair<Node *, int>> p;
-    p.push({root, 0});
-    while (!p.empty())
+    if (root == NULL)
+        return;
+    if (root->left)
     {
-        pair<Node *, int> q = p.front();
-        p.pop();
-        Node *node = q.first;
-        int level = q.second;
-        if (level == X)
-        {
-            v.push_back(node->value);
-        }
-        if (node->left)
-            p.push({node->left, level + 1});
-        if (node->right)
-            p.push({node->right, level + 1});
+        prntLeft(root->left);
+        cout << root->left->value << " ";
     }
-    return v;
+    else if (root->right)
+    {
+        prntLeft(root->right);
+        cout << root->right->value << " ";
+    }
+}
+void prntRight(Node *root)
+{
+    if (root == NULL)
+        return;
+    if (root->right)
+    {
+        cout << root->right->value << " ";
+        prntRight(root->right);
+    }
+    else if (root->left)
+    {
+        cout << root->left->value << " ";
+        prntRight(root->left);
+    }
 }
 int main()
 {
     Node *root = inputBtree();
-    int level;
-    cin >> level;
-    vector<int> v;
-    v = levelNodes(root, level);
-    if (v.empty())
+    if (root->left)
     {
-        cout << "Invalid" << endl;
+        prntLeft(root);
     }
-    else
+    cout << root->value << " ";
+    if (root->right)
     {
-        for (int i = 0; i < v.size(); i++)
-        {
-            cout << v[i] << " ";
-        }
-        cout << endl;
+        prntRight(root);
     }
+    cout << endl;
     return 0;
 }
