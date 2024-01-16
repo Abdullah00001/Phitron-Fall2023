@@ -14,7 +14,7 @@ int main()
         while (crntIndex != 0)
         {
             int parentIndex = (crntIndex - 1) / 2;
-            if (v[parentIndex] < v[crntIndex])
+            if (v[parentIndex] > v[crntIndex])
             {
                 swap(v[parentIndex], v[crntIndex]);
             }
