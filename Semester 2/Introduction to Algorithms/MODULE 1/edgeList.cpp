@@ -11,10 +11,17 @@ int main()
         cin >> A >> B;
         p.push_back({A, B});
     }
-    for (int i = 0; i < p.size(); i++)
+    // for (int i = 0; i < p.size(); i++)
+    // {
+    //     cout << p[i].first << " " << p[i].second << endl;
+    // }
+    // for (pair<int, int> x : p)
+    // {
+    //     cout << x.first << " " << x.second << endl;
+    // }
+    for (auto x : p)
     {
-        cout << p[i].first << " " << p[i].second << endl;
+        cout << x.first << " " << x.second << endl;
     }
-
     return 0;
 }
