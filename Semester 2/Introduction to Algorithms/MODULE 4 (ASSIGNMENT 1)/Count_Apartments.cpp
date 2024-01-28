@@ -9,9 +9,8 @@ bool isValid(int i, int j)
 {
     return !(i < 0 || i >= N || j < 0 || j >= M || mat[i][j] == '#');
 }
-void dfs(int source_i, int source_j, int &cnt)
+void dfs(int source_i, int source_j)
 {
-    cnt++;
     isVisited[source_i][source_j] = true;
     for (int i = 0; i < 4; i++)
     {
@@ -19,7 +18,7 @@ void dfs(int source_i, int source_j, int &cnt)
         int child_j = source_j + direc[i].second;
         if (isValid(child_i, child_j) && !isVisited[child_i][child_j] && mat[child_i][child_j] == '.')
         {
-            dfs(child_i, child_j, cnt);
+            dfs(child_i, child_j);
         }
     }
 }
@@ -35,7 +34,17 @@ int main()
     }
     memset(isVisited, false, sizeof(isVisited));
     int cnt = 0;
-    dfs(0, 0, cnt);
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            if (!isVisited[i][j] && mat[i][j] == '.')
+            {
+                dfs(i, j);
+                cnt++;
+            }
+        }
+    }
     cout << cnt << endl;
     return 0;
 }
