@@ -23,7 +23,7 @@ void bfs(int src_i, int src_j)
         {
             int child_i = a + direc[i].first;
             int child_j = b + direc[i].second;
-            if (isValid(child_i, child_j) && !isVisited[child_i][child_j])
+            if (isValid(child_i, child_j) && !isVisited[child_i][child_j] && mat[child_i][child_j]!='#')
             {
                 flow.push({child_i, child_j});
                 isVisited[child_i][child_j] = true;
