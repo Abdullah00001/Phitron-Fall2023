@@ -1,19 +1,21 @@
 #include <bits/stdc++.h>
 #define ll long long int
 using namespace std;
+const ll N = 50;
+char mat[N][N];
+bool isvis[N][N];
+ll dis[N][N];
 class point
 {
 public:
     ll x, y;
 };
-const ll N = 1e4 + 5;
 vector<pair<ll, ll>> direction = {{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
-bool isvis[N][N];
-bool isvalid(ll x, ll y, ll n, vector<vector<char>> &mat)
+bool isvalid(ll x, ll y, ll n)
 {
     return (x >= 0 && x < n && y >= 0 && y < n && !isvis[x][y] && mat[x][y] != 'T');
 }
-ll bfs(point start, point end, ll n, vector<vector<char>> &mat)
+ll bfs(point start, point end, ll n)
 {
     queue<pair<point, ll>> parent;
     parent.push({start, 0});
@@ -29,9 +31,10 @@ ll bfs(point start, point end, ll n, vector<vector<char>> &mat)
         {
             ll childX = cur.x + direction[i].first;
             ll childY = cur.y + direction[i].second;
-            if (isvalid(childX, childY, n, mat))
+            if (isvalid(childX, childY, n))
             {
                 parent.push({{childX, childY}, dis + 1});
+                isvis[childX][childY]=true;
             }
         }
     }
@@ -42,7 +45,6 @@ int main()
     ll n;
     while (cin >> n)
     {
-        vector<vector<char>> mat(n, vector<char>(n));
         point start, end;
         for (ll i = 0; i < n; i++)
         {
@@ -62,7 +64,7 @@ int main()
             }
         }
         memset(isvis, false, sizeof(isvis));
-        ll minSteps = bfs(start, end, n, mat);
+        ll minSteps = bfs(start, end, n);
         cout << minSteps << endl;
     }
 
