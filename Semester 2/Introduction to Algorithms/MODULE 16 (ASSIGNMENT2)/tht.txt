@@ -1,0 +1,23 @@
+// reverse(ans.begin(), ans.end());
+        // int curX = source.first;
+        // int curY = source.second;
+        // for (auto i : ans)
+        // {
+        //     if (i.first == 1 && i.second == 0)
+        //     {
+        //         curX++;
+        //     }
+        //     if (i.first == -1 && i.second == 0)
+        //     {
+        //         curX--;
+        //     }
+        //     if (i.first == 0 && i.second == -1)
+        //     {
+        //         curY--;
+        //     }
+        //     if (i.first == 0 && i.second == 1)
+        //     {
+        //         curY++;
+        //     }
+        //     mat[curX][curY] = 'X';
+        // }
