@@ -11,7 +11,7 @@ int knapsack(int n, int w, int *weight, int *value)
         return dp[n][w];
     if (weight[n - 1] <= w)
     {
-        int optn1 = knapsack(n - 1, w - weight[n - 1], weight, value);
+        int optn1 = knapsack(n - 1, w - weight[n - 1], weight, value)+value[n-1];
         int optn2 = knapsack(n - 1, w, weight, value);
         return dp[n][w] = max(optn1, optn2);
     }
@@ -28,6 +28,10 @@ int main()
     for (int i = 0; i < N; i++)
     {
         cin >> weight[i];
+        // cin >> value[i];
+    }
+    for (int i = 0; i < N; i++)
+    {
         cin >> value[i];
     }
     for (int i = 0; i <= N; i++)
