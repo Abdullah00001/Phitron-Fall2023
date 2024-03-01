@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 int dp[1005][1005];
-bool subSetSum(int n, int w, int *arr)
+int subSetSum(int n, int w, int *arr)
 {
     if (n == 0)
     {
         if (w == 0)
-            return true;
+            return 1;
         else
-            return false;
+            return 0;
     }
     if (dp[n][w] != -1)
         return dp[n][w];
     if (arr[n - 1] <= w)
     {
-        bool optn1 = subSetSum(n - 1, w - arr[n - 1], arr);
-        bool optn2 = subSetSum(n - 1, w, arr);
-        return dp[n][w] = optn1 || optn2;
+        int optn1 = subSetSum(n - 1, w - arr[n - 1], arr);
+        int optn2 = subSetSum(n - 1, w, arr);
+        return dp[n][w] = optn1 + optn2;
     }
     else
         return dp[n][w] = subSetSum(n - 1, w, arr);
@@ -37,9 +37,10 @@ int main()
             dp[i][j] = -1;
         }
     }
-    if (subSetSum(n, w, arr))
+    /* if (subSetSum(n, w, arr))
         cout << "YES" << endl;
     else
-        cout << "NO" << endl;
+        cout << "NO" << endl; */
+    cout << subSetSum(n, w, arr) << endl;
     return 0;
 }
