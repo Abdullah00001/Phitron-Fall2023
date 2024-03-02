@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .Div1 {
+            height: 150px;
+            width: 150px;
+            margin: 10px 10px;
+            background-color: rgb(22, 87, 87);
+            position: relative;
+        }
+
+        .Div2 {
+            background-color: chocolate;
+            height: 120px;
+            width: 120px;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            position: absolute;
+            transition: background-color 2s, transform 2s;
+        }
+
+        .Div2:hover {
+            background-color: cornsilk;
+            transform: translate3d(30px, 0, 0);
+        }
+
+        .btn {
+            background-color: rgb(95, 199, 82);
+            color: aliceblue;
+            font-weight: bold;
+            font-size: 16px;
+            height: 40px;
+            text-decoration: none;
+            width: 120px;
+            margin-left: 50px;
+            margin-top: 50px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: background-color .2s,text-transform 1s,color .2s, border 0.5s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: black;
+            text-transform: uppercase;
+            border: 1px solid #e64c4c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Div1">
+        <div class="Div2">
+        </div>
+    </div>
+    <button class="btn">DownLoad</button>
+</body>
+
+</html>
