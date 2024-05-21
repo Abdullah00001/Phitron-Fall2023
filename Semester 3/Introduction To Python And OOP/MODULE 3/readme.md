@@ -1,0 +1,1 @@
+this repository is all about pythos data structureand the about more advanced things

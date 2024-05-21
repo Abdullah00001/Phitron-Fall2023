@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #eadbc8;
+  font-family: "Open Sans", sans-serif;
+}
+section {
+  position: relative;
+}
+.container {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.nav_Inner {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.homeBtn{
+  width: 5%;
+  text-align: center;
+}
+.homeBtn i{
+  text-align: center;
+  font-size: 50px;
+  cursor: pointer;
+  color: #543310;
+}
+.nav_Left {
+  width: 85%;
+}
+.nav_Left .searchField {
+  width: 100%;
+  padding: 20px 25px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  box-shadow: 1px 1px 15px #c7b7a3a6;
+}
+
+.nav_Right {
+  width: 10%;
+}
+
+.nav_Right .searchBtn {
+  width: 100%;
+  padding: 20px 25px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  background-color: #543310;
+  border: none;
+  box-shadow: 1px 1px 15px #c7b7a3;
+  color: white;
+  transition: all ease-in-out 0.5s;
+}
+
+.searchBtn:hover {
+  background: #000;
+}
+
+.usersSection {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.usersDirectory {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  align-items: center;
+}
+.userCard {
+  box-shadow: 1px 1px 15px #c7b7a3;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #f8f4e1;
+  min-height: 450px;
+}
+.userCard img {
+  border-radius: 10px;
+  width: 100%;
+}
+.userCard h3 {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.cardbtns {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.cardbtns button {
+  width: 50%;
+  background-color: #d8ae7e;
+  padding: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  cursor: pointer;
+}
+.usersGroup {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.profileImg {
+  display: flex;
+  justify-content: center;
+}
+
+.cardcontent {
+  padding-left: 10px;
+}
+
+.groupNav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.groupBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.groupBtn i {
+  color: #543310;
+}
+
+.inGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 700px;
+  overflow-y: scroll;
+  padding-right: 10px;
+  visibility: hidden;
+}
+
+.groupMembers {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px #c7b7a3;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.groupMembers img {
+  width: 30%;
+  border-radius: 10px;
+}
+.membersName {
+  width: 70%;
+}
+
+.membersName h5 {
+  display: inline-block;
+  background-color: #f8f4e1;
+  color: #543310;
+  margin-top: 7px;
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+
+.playerModal {
+  width: 100%;
+  animation: anime 0.5s ease-in-out;
+  height: 100%;
+  display: none;
+  background-color: #ffffff9d;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+@keyframes anime{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+.modalInner {
+  width: 500px;
+  height: 700px;
+  overflow-y: scroll;
+  background-color: #f8f4e1;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 1px 1px 15px #c7b7a3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.modalInner img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.close-icon {
+  display: flex;
+  justify-content: right;
+}
+.close-icon i {
+  margin-bottom: 4px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.modalInner h3 {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.modalInner p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.socialMedia {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.socialMedia a {
+  font-size: 28px;
+}
+
+.img-icon {
+  position: sticky;
+  top: 0;
+}

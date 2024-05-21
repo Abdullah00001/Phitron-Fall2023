@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/a59ccc9d18.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container mx-auto">
+      <div
+        class="mx-auto mt-20 w-[500px] p-5 rounded-lg"
+        style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.212)"
+      >
+        <div>
+          <img class="rounded-lg" src="./img/2150010125 (1).jpg" alt="" />
+        </div>
+        <div>
+          <div class="flex gap-8 items-center mt-7">
+            <div class="flex items-center gap-3 p-1">
+              <i id="likeBtn" class="fa-solid fa-thumbs-up text-[40px]"></i>
+              <p id="likeCount" class="text-[40px] font-semibold">0</p>
+            </div>
+            <div class="flex items-center gap-3 p-1">
+              <i
+                id="dislikeBtn"
+                class="fa-solid fa-thumbs-down text-[40px]"
+              ></i>
+              <p id="DisLikeCount" class="text-[40px] font-semibold">0</p>
+            </div>
+            <div class="flex items-center gap-3 p-1">
+              <i id="cmntIcon" class="fa-solid fa-comment text-[40px]"></i>
+              <p id="cmntCount" class="text-[40px] font-semibold">0</p>
+            </div>
+          </div>
+        </div>
+        <div id="cmntBox" class="hidden">
+          <div class="p-3 bg-orange-100 rounded-lg">
+            <div class="flex items-center gap-2">
+              <input
+                class="w-[350px] p-3 rounded-md"
+                type="text"
+                placeholder="type your comment"
+                id="cmntinput"
+              />
+              <button
+                class="rounded-md py-3 px-3 font-semibold text-white bg-orange-400"
+                type="submit"
+                id="cmntsubmit"
+              >
+                comment
+              </button>
+            </div>
+            <div id="comments" class="p-4 h-[400px] overflow-y-scroll"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

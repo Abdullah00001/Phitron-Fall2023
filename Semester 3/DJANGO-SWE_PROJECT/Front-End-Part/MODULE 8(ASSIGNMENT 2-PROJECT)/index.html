@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayerHub</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a59ccc9d18.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="nav_Inner">
+          <div class="homeBtn" id="homeBtn">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <div class="nav_Left">
+            <input
+              id="searchFieldID"
+              class="searchField"
+              type="text"
+              placeholder="Type An Player Name"
+            />
+          </div>
+          <div class="nav_Right">
+            <button id="searchBtnID" class="searchBtn">Search</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container" >
+        <div class="usersSection">
+          <div class="usersDirectory" id="defaultUsers">
+            <!-- <div class="userCard">
+              <div class="profileImg">
+                <img
+                  src="https://st3.depositphotos.com/15648834/17930/v/1600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="cardcontent">
+                <h3>
+                  Name :
+                  <span style="font-weight: normal">Abdullah Bin Omar</span>
+                </h3>
+                <h3>
+                  Nationalty :
+                  <span style="font-weight: normal">Bangladesh</span>
+                </h3>
+                <h3>
+                  Team :
+                  <span style="font-weight: normal">Panchagarh Cricket...</span>
+                </h3>
+                <h3>
+                  Sports : <span style="font-weight: normal">Cricket</span>
+                </h3>
+              </div>
+              <div class="cardbtns">
+                <button>Add To Group</button>
+                <button>View Details</button>
+              </div>
+            </div> -->
+          </div>
+          <div class="usersGroup">
+            <div class="groupNav">
+              <div>
+                <button class="groupBtn" id="toggleBtn">
+                  <i class="fa-solid fa-people-group"></i>See Members
+                </button>
+              </div>
+              <div>
+                <h3 style="color: #543310; font-size: 18px">
+                  Total Members : <span id="memberscnt">0</span>
+                </h3>
+              </div>
+            </div>
+            <div class="inGroup" id="inGroup">
+              <!-- <div class="groupMembers">
+                <img
+                  src="https://www.thesportsdb.com/images/media/player/thumb/g4wvkd1715902407.jpg"
+                  alt=""
+                />
+                <div class="membersName">
+                  <h3 style="font-weight: normal">Abdullah Bin Omar</h3>
+                  <h5>Team Panchagarh</h5>
+                  <h5>England</h5>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- modal -->
+          <div id="playerDeatils" class="playerModal">
+            <!-- <div class="modalInner">
+              <div class="img-icon">
+                <div class="close-icon">
+                  <i id="closeBtn" class="fa-solid fa-circle-xmark"></i>
+                </div>
+              </div>
+              <img
+                src="https://www.thesportsdb.com/images/media/player/thumb/82uics1544986067.jpg"
+                alt=""
+              />
+              <h3>
+                Name :
+                <span style="font-weight: normal"
+                  >${user.strPlayer.slice(0, 18)}</span
+                >
+              </h3>
+              <h3>
+                Nationalty :
+                <span style="font-weight: normal">${user.strNationality}</span>
+              </h3>
+              <h3>
+                DateOfBirth :
+                <span style="font-weight: normal">${user.strNationality}</span>
+              </h3>
+              <h3>
+                Team :
+                <span style="font-weight: normal">${user.strTeam}</span>
+              </h3>
+              <h3>
+                Sports :
+                <span style="font-weight: normal">${user.strSport}</span>
+              </h3>
+              <h3>
+                Income :
+                <span style="font-weight: normal">${user.strSport}</span>
+              </h3>
+              <h3>
+                Gender :
+                <span style="font-weight: normal">${user.strSport}</span>
+              </h3>
+              <h3>
+                Playing Position :
+                <span style="font-weight: normal">${user.strSport}</span>
+              </h3>
+              <div class="socialMedia">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-edge"></i></a>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+                deleniti doloribus quia maxime quasi dolorem maiores? Quas
+                veritatis itaque iste, architecto quis saepe aperiam
+                exercitationem!
+              </p>
+            </div> -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
