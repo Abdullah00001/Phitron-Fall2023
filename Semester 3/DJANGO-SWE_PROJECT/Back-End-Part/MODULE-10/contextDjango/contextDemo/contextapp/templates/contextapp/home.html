@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      {% for data in people_data %}
+      <div>
+        <h1>Name : {{data.name}}</h1>
+        {% if data.age >= 18 %}
+        <h2>He Is Mature</h2>
+        {% else %}
+        <h2>He Is Teenager</h2>
+        {% endif %}
+        <h2>city : {{data.living_city}}</h2>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
