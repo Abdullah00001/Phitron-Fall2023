@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+  </head>
+  <body style="box-sizing: border-box; margin: 0; padding: 0">
+    <h1 style="text-align: center">
+      Practicing Template Filters
+    </h1>
+    <section style="width: 1144px; margin: 0 auto">
+      <div style="width: 100%; padding: 15px 0; background-color: #ee9494">
+        <ul style="display: flex; gap: 15px; list-style: none">
+          <li>
+            <a
+              style="text-decoration: none; font-size: 22px; color: aliceblue"
+              href="/"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              style="text-decoration: none; font-size: 22px; color: aliceblue"
+              href="/Products/"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="width: 1144px; margin: 0 auto; margin-top: 100px">
+      <div
+        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px"
+      >
+        {% for data in users %}
+        <div
+          style="
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.466),
+              2px 0 20px rgba(128, 128, 128, 0.267);
+            border-radius: 10px;
+            padding: 10px;
+          "
+        >
+          <h1>Full Name: {{data.full_name | capfirst }}</h1>
+          <h4>User Name: {{data.username | add:"_dev"}}</h4>
+          <p>User Name Size: {{data.username | length}} characters</p>
+          <h4>User Website: {{data.portfolioLink | addslashes}}</h4>
+          <p>User Bio: "{{data.userdescription | center:"15"}}"</p>
+          <h4>UserID: {{data.full_name | cut:" "}}</h4>
+          <h4>Experienched: {{data.job_history| dictsort:"days_worked"}}</h4>
+          <h4>First Job: {{ data.job_history | first }}</h4>
+          <h4>Size Of Exp: {{ index.html | filesizeformat }}</h4>
+          <h4>InString: {{ data.job_history | join:" // " }}</h4>
+          <h4>Last Job: {{ data.job_history | last }}</h4>
+          <h4>TOtal Job Count: {{ data.job_history | length }}</h4>
+          <h4>Line Count: {{ data.userdescription | linenumbers }}</h4>
+          <h4>Word Count: {{ data.userdescription | wordcount  }}</h4>
+          <h4>lower case name: {{ data.full_name | lower }}</h4>
+          <h4>Character Of Name: {{ data.full_name | make_list }}</h4>
+          <h4>Random Character Of Name: {{ data.full_name | random }}</h4>
+          <h4>First Name: {{ data.full_name | slice:":4" }}</h4>
+          <h4>Name With highpen : {{ data.full_name | slugify  }}</h4>
+          <h4>title Name: {{data.username | title }}</h4>
+          <h4>Upper Name: {{data.username | upper }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>
