@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightblue;
+  color: #fff;
+}
+
+.container {
+  width: 1144px;
+  margin: 0 auto;
+}
+
+.img-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.flex-img {
+  width: 100%;
+}
