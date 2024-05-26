@@ -12,6 +12,7 @@ body {
 .container {
   width: 1144px;
   margin: 0 auto;
+  background-color: lightgreen;
 }
 
 .img-flex {
