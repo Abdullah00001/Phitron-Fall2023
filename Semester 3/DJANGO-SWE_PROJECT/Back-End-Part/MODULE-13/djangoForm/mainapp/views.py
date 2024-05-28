@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import contactForm
 
 # Create your views here.
 
@@ -25,3 +26,10 @@ def mainApphomePage(req):
 
 def signupPage(req):
     return render(req, "mainapp/signup.html")
+
+
+def contactPage(req):
+    contact_Form = contactForm(req.POST)
+    if contact_Form.is_valid():
+        print(contact_Form.cleaned_data)
+    return render(req,"mainapp/contactPage.html",{"form": contact_Form})

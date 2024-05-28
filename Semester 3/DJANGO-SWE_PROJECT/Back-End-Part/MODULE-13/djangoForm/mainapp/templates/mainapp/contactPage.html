@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}Contact{% endblock title %}
+{% block mainsection %}
+<section class="container mx-auto">
+    <div class="w-50 border-1 border-secondary mx-auto">
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock mainsection %} 
