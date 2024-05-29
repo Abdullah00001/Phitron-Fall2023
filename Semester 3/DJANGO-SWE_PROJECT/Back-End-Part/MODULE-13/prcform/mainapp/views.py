@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from . forms import contactForm
+from .forms import contactForm
+
 # Create your views here.
 
 
@@ -30,7 +31,15 @@ def appHome(req):
 
 
 def contactPage(req):
-    form=contactForm(req.POST)
-    if form.is_valid():
-        print(form.cleaned_data)
-    return render(req,'mainapp/contactpage.html',{'contact':form})
+    if req.method == "POST":
+        form = contactForm(req.POST, req.FILES)
+        if form.is_valid():
+            file = form.cleaned_data["userFile"]
+            with open("./mainapp/upload/" + file.name, "wb+") as destination:
+                for chunk in file.chunks():
+                    destination.write(chunk)
+            print(form.cleaned_data)
+            return render(req, "mainapp/contactpage.html", {"contact": form})
+    else:
+        form = contactForm()
+    return render(req, "mainapp/contactpage.html", {"contact": form})

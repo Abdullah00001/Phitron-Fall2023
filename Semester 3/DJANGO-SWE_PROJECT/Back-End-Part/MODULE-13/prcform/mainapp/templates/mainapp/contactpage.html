@@ -4,7 +4,7 @@
 {% block title %}Contact Us{% endblock title %}
 
 {% block mainsection %}
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{contact}}
     <button type="submit" class="btn btn-danger">Submit</button>
