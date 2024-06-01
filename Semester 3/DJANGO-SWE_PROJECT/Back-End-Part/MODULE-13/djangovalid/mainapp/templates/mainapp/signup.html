@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock title %}
+{% block main %}
+<section class="container mx-auto mt-3">
+    <div class="mx-auto" style="width: 600px;">
+        {% if message %}
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ signUP|crispy }}
+            <button class="btn btn-danger">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock main %}
