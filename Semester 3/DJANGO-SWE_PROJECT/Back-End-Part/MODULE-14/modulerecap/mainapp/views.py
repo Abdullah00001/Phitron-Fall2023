@@ -16,6 +16,7 @@ def signuppage(req):
             form.save()
     else:
         form = UserForm()
+    form = UserForm()
     return render(req, "mainapp/signup.html", {"Form": form})
 
 
