@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!-- Title -->
+{% block title %}Post{% endblock title %}
+<!-- Title -->
+
+<!-- Post Custom Css -->
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/Post.css' %}">
+{% endblock css %}
+<!-- Post Custom Css -->
+
+<!-- Main Section -->
+{% block Main_Section %}
+<section class="mx-auto container">
+    <div class="mx-auto PostBox">
+        <form method="post">
+            {% csrf_token %}
+            {{Post_form|crispy}}
+            <button type="submit" class="btn btn-outline-success">Create</button>
+        </form>
+    </div>
+</section>
+{% endblock Main_Section %}
+<!-- Main Section -->
+
+<!-- Post Custom Js -->
+{% block js %}\
+<script src="{% static 'js/Post.js' %}"></script>
+{% endblock js %}
+<!-- Post Custom Js -->
