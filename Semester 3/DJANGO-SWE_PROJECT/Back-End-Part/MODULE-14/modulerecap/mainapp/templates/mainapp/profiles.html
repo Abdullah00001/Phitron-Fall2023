@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Profiles{% endblock title %}
+{% block Main_Section %}
+<section class="container mx-auto">
+    <div style="display: grid;grid-template-columns: repeat(3,1fr);gap: 5px; padding: 10px; width: 800px;" class="mx-auto">
+            {% if infos %}
+              {% for data in infos %}
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.firstname }} {{ data.lastname }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ data.username }}</h6>
+                    <p class="card-text">{{ data.userabout | slice:":100" }}</p>
+                    <a href="{% url 'dltprofile' data.userserial %}" class="card-link">Delete Profile</a>
+                </div>
+            </div>            
+              {% endfor %}
+            {% else %}
+            <h3>No Data Avaiable</h3>
+            {% endif %}
+            
+          
+    </div>
+</section>
+{% endblock Main_Section %}
