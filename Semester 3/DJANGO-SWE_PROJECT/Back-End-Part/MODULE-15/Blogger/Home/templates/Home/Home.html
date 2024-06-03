@@ -17,19 +17,19 @@
     <div class="mx-auto posts_main">
         {% if posts %}
           {% for post in posts %}
-          <div class="card" style="width: 18rem;">
+          <div class="card" >
             <div class="card-body">
               <h3 class="card-title">{{post.title}}</h3>
               <strong class="card-subtitle mb-2 text-body-secondary">{{post.subtitle}}</strong>
-              <p class="card-text">{{post.content|slice:":250"}}</p>
+              <p class="card-text">{{post.content|slice:":100"}}</p>
               <p class="cart-text text-success bold">@{{post.author.name|slice:":12"}}</p>
               <div class="categories">
                 {% for postcategory in post.category.all %}
-                <button class="btn btn-primary btn-sm">{{postcategory}}</button>
+                <h6 class="link-danger categorylink">#{{postcategory}}</h6>
                 {% endfor %}
               </div>
-              <a href="#" class=" btn btn-info">Edit</a>
-              <a href="#" class=" btn btn-danger">Delete</a>
+              <a href="{% url 'edit' post.id %}" class=" btn btn-info">Edit</a>
+              <a href="{% url 'delete' post.id %}" class=" btn btn-danger">Delete</a>
             </div>
           </div>
           {% endfor %}

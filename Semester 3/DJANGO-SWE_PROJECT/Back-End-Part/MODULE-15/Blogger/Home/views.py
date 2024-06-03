@@ -7,3 +7,4 @@ from Posts.models import PostsModel
 def homepage(req):
     postsInfos = PostsModel.objects.all()
     return render(req, "Home/Home.html", {"posts": postsInfos})
+

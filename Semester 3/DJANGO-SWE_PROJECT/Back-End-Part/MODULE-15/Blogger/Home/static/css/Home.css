@@ -15,3 +15,7 @@
 .bold{
     font-weight: bold;
 }
+
+.categorylink{
+    cursor: pointer;
+}
