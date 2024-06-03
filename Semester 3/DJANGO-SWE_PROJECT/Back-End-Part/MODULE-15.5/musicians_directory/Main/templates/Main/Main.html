@@ -1,0 +1,63 @@
+{% extends 'Main/Base.html' %}
+{% load static %}
+{% block title %}Home Page{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/Main.css' %}">
+{% endblock css %}
+
+<!-- hero section start -->
+{% block hero_Section %}
+<section class="container mx-auto mt-4">
+    <h1 class="text-center">This Is Hero Section</h1>
+</section>
+{% endblock hero_Section %}
+<!-- hero section end -->
+
+<!-- main section start -->
+{% block Main_Section %}
+<section class="container mx-auto mt-4 p-4">
+    <div class="mx-auto ">
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Musician Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Instrument type</th>
+                <th scope="col">Album Name</th>
+                <th scope="col">Realease Date&Time</th>
+                <th scope="col">Album Ratings</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% if infos %}
+                    {% for info in infos %}
+                    <tr>
+                        <th scope="row">{{info.id}}</th>
+                        <td>{{info.firstname}} {{info.lastname}}</td>
+                        <td>{{info.useremail}}</td>
+                        <td>{{info.intrumenttype}}</td>
+                        <td>{{info.album.albumname}}</td>
+                        <td>{{info.album.albumreleasedate}}</td>
+                        <td>{{info.album.albumrating}}</td>
+                        <td>
+                            <a href="#" class="link-info">Edit</a>
+                            <a href="#" class="link-danger">Delete</a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                {% else %}
+                <h3 class="text-danger">No Data Found!</h3>                  
+                {% endif %}
+            </tbody>
+          </table>
+    </div>
+</section>
+{% endblock Main_Section %}
+<!-- main section end -->
+
+
+{% block js %}
+<script src="{% static 'js/Main.js' %}"></script>
+{% endblock js %}
