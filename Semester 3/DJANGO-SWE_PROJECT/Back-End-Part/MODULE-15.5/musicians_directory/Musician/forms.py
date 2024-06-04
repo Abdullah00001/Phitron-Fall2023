@@ -11,7 +11,7 @@ instrument_choice = [
 ]
 
 
-class MusicanForm(forms.ModelForm):
+class MusicianForm(forms.ModelForm):
     class Meta:
         model = MusicianModel
         fields = "__all__"

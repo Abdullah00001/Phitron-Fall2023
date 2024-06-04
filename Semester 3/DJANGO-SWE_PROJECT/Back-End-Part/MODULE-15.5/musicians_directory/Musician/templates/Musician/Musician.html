@@ -9,7 +9,7 @@
 <!-- hero section start -->
 {% block hero_Section %}
 <section class="container mx-auto mt-4">
-    <h1 class="text-center">This Is Hero Section</h1>
+    <h1 class="text-center">Add A Musician</h1>
 </section>
 {% endblock hero_Section %}
 <!-- hero section end -->
@@ -21,7 +21,13 @@
         <form method="post">
             {% csrf_token %}
             {{form|crispy}}
+            {% if flag %}
+            <button type="submit" class="btn btn-outline-success">Edit</button>
+            <a href="{% url 'deleteMusician' id %}" class="btn btn-danger">Delete</a>
+            {% else %}
             <button type="submit" class="btn btn-outline-success">Submit</button>
+            {% endif %}
+            
         </form>
     </div>
 </section>

@@ -1,4 +1,16 @@
+*{
+    text-decoration: none !important;
+}
 .tableDiv{
     width: 1000px;
     padding: 10px;
+}
+.userName{
+    text-decoration: none;
+    color: #fff;
+}
+
+.actionsbtns{
+    display: flex !important;
+    gap: 8px !important;
 }
