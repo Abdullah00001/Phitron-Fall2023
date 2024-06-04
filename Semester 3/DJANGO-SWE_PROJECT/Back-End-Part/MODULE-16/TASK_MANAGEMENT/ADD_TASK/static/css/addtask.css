@@ -1,0 +1,11 @@
+.form-div{
+    width: 650px;
+    padding: 10px;
+    border: 2px solid #F3F8FF;
+    border-radius: 10px; 
+    margin-top: 30px;
+    box-shadow: 1px 1px 10px black,1px 1px 10px rgba(0, 0, 0, 0.295);
+}
+.task-title{
+    width: 650px;
+}

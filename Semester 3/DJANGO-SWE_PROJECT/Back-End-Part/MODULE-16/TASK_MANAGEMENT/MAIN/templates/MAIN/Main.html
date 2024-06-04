@@ -1,0 +1,44 @@
+{% extends "MAIN/Base.html" %}
+{% load static %}
+{% block title %}VIEW TASK{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/Main.css' %}">
+{% endblock css %}
+{% block Main_Section %}
+<section class="p-4">
+    <div class="main-width">
+        <h3 class="text-center">View Your All Tasks Here...</h3>
+    </div>
+    <div class="task-content">
+        {% if tasks %}
+          {% for task in tasks %}
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">{{task.taskTitle}}</h5>
+                <p class="card-text">{{task.taskDescription}}</p>
+                <p class="card-text">{{task.taskAssignDate}}</p>
+                <p class="card-text">
+                    {% for category in task.taskCategory.all %}
+                      <span class="text-bg-info p-1 text-dark rounded-1">#{{category.categoryName}}</span>
+                    {% endfor %}
+                </p>
+                {% if task.is_Completed %}
+                  <p class="card-text fw-bold text-success">Completed</p>
+                {% else %}
+                <p class="card-text fw-bold text-warning">Pending</p>
+                <a href="{% url 'editTask' task.id %}" class="btn btn-primary">Edit Task</a>
+                <a href="{% url 'deleteTask' task.id %}" class="btn btn-danger">Delete Task</a>
+                {% endif %}
+                </div>
+            </div>
+          {% endfor %}
+        {% else %}
+            <h3 class="text-secondary">No Task Available</h3>
+        {% endif %}
+        
+    </div>
+</section>
+{% endblock Main_Section %}
+{% block js %}
+<script src="{% static 'js/Main.js' %}"></script>
+{% endblock js %}

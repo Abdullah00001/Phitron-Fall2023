@@ -1,0 +1,20 @@
+{% extends "MAIN/Base.html" %}
+{% load static %}
+{% block title %}VIEW TASK{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+{% block Main_Section %}
+<section class="conatainer max-auto">
+    <div class="div-center">
+        <div class="text-center">
+            <h1>Wellcome To TODO-APP</h1>
+        <p>To Manage Your Time</p>
+        <a class="btn btn-outline-dark" href="{% url 'task' %}">Add Your Tasks</a>
+        </div>
+    </div>
+</section>
+{% endblock Main_Section %}
+{% block js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock js %}
