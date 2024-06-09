@@ -1,0 +1,32 @@
+{% extends "Home/Base.html" %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/Account.css' %}">
+{% endblock css %}
+
+<!-- Hero Section -->
+{% block hero_Section %}{% endblock hero_Section %}
+<!-- Hero Section -->
+
+<!-- MAin Section -->
+{% block Main_Section %}
+<section>
+    <div class="container mx-auto p-5">
+        <div class="w-50 p-4 rounded-3 mx-auto profile-page">
+            <h1 class="text-center">PROFILE</h1>
+            <div class="mt-4">
+                <h4>Name : {{user.first_name}} {{user.last_name}}</h4>
+                <h4>Username : {{user.username}}</h4>
+                <h4>Email : {{user.email}}</h4>
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'changepassword' %}" class="btn btn-warning">Change Password</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock Main_Section %}
+<!-- MAin Section -->
+
+{% block js %}{% endblock js %}

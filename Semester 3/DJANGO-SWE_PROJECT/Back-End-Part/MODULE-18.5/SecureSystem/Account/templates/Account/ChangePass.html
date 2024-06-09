@@ -1,0 +1,35 @@
+{% extends "Home/Base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Chanage Password{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/Account.css' %}">
+{% endblock css %}
+
+<!-- Hero Section -->
+{% block hero_Section %}{% endblock hero_Section %}
+<!-- Hero Section -->
+
+<!-- MAin Section -->
+{% block Main_Section %}
+<section>
+    <div class="container mx-auto p-5">
+        <div class="w-50 mx-auto rounded-3 p-4 passChange-page">
+            <h2 class="text-center">Chanage Password</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <!-- {{form|crispy}} -->
+                {% for fm in form %}
+                {{fm.label_tag}}
+                {{fm}}
+                {{fm.errors|striptags}}
+                {% endfor %}
+                <button class="btn btn-outline-info d-block mt-3" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock Main_Section %}
+<!-- MAin Section -->
+
+{% block js %}{% endblock js %}

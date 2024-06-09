@@ -1,0 +1,6 @@
+.msg-toast{
+    min-width: 250px;
+    margin: 15px 0 0 40%;
+    cursor: pointer;
+    display: inline-block;
+}
