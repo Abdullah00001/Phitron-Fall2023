@@ -1,0 +1,88 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block siteTitle %}Post Details{% endblock siteTitle %}
+{% block customLinks %}{% endblock customLinks %}
+
+<!-- Hero Section -->
+{% block heroSection %}{% endblock heroSection %}
+<!-- Hero Section -->
+
+<!-- Main Section -->
+{% block mainSection %}
+<section>
+    <div class="container mx-auto">
+        <div class="w-75 mx-auto p-4">
+            <div class="card mb-3">
+                <img class="card-img-top p-2" src="{{posts.post_img.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{posts.post_title}}</h3>
+                    <h6 class="card-text">{{posts.post_subtitle}}</h6>
+                    <p class="card-text">{{posts.post_content}}</p>
+                    <h6 class="card-text">{{posts.post_author.first_name}} {{posts.post_author.last_name}}</h6>
+                    <p class="card-text"><small class="text-muted">Created : {{posts.post_creation_time|date}}</small>
+                    </p>
+                    <p>
+                        {% for cat in posts.post_category.all %}
+                        <a href="{% url 'slugfield' cat.slug %}">{{cat.category_name}}</a>
+                        {% endfor %}
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'updatepost' posts.id %}" class="btn-info btn">Update Post</a>
+                    <a href="{% url 'deletepost' posts.id %}" class="btn-warning btn">Delete Post</a>
+                    {% endif %}
+                    <div class="mt-3">
+                        <p class="d-inline-flex gap-1">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                Check Comments
+                            </a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">
+                                Write Comment
+                            </button>
+                        </p>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" novalidate>
+                                            {% csrf_token %}
+                                            {{comment_form|crispy}}
+                                            <button class="btn btn-primary" type="submit">Comment</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <h4>Total Comments : {{comments|length}}</h4>
+                            {% for cmnt in comments %}
+                            <div class="card card-body mb-2">
+                                <p>{{cmnt.comment_author_username}}</p>
+                                <p>{{cmnt.comment_author_email}}</p>
+                                <small>{{cmnt.comment_create_time}}</small>
+                                <h6>{{cmnt.comment_body}}</h6>
+                                <div>
+                                    <a href="{% url 'deletecomment' cmnt.id %}" class="btn btn-primary">Delete Comment
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock mainSection %}
+<!-- Main Section -->
+
+{% block customJsLinks %}{% endblock customJsLinks %}

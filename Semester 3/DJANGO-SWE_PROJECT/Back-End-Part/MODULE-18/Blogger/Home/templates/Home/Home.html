@@ -14,6 +14,7 @@
 <!-- Main Section -->
 {% block Main_Section %}
 <section class="container-fluid">
+  
   <div class="row p-4">
     <div class="col-2 p-2">
       {% for catg in categories %}
@@ -37,7 +38,8 @@
             <p class="cart-text text-success bold">@{{post.author.username|slice:":12"}}</p>
             <div class="categories">
               {% for postcategory in post.category.all %}
-              <a href="{% url 'post_slug' postcategory.nameSlug %}" class="link-danger categorylink">#{{postcategory}}</a>
+              <a href="{% url 'post_slug' postcategory.nameSlug %}"
+                class="link-danger categorylink">#{{postcategory}}</a>
               {% endfor %}
             </div>
             {% if user.is_authenticated %}
