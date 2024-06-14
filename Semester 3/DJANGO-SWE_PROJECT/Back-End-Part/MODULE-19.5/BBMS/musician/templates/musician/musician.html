@@ -1,0 +1,25 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Create Album{% endblock title %}
+
+
+
+{% block Main_Section %}
+<section>
+    <div class="container mx-auto p-3">
+        <div class="w-50 p-4 mx-auto">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <!-- {{form|crispy}} -->
+                {% for fm in form %}
+                {{fm.labeltag}}
+                {{fm}}
+                {{fm.errors|striptags}}
+                {% endfor %}
+                <button class="btn btn-success" type="submit">Add Musician</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock Main_Section %}
