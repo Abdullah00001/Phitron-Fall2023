@@ -8,16 +8,18 @@
 {% block Main_Section %}
 <section>
     <div class="container mx-auto p-3">
-        <div class="w-50 p-4">
+        <div class="w-50 p-4 mx-auto">
             <form method="post" novalidate>
                 {% csrf_token %}
                 <!-- {{form|crispy}} -->
                 {% for fm in form %}
-                {{fm.labeltag}}
-                {{fm}}
-                {{fm.errors|striptags}}
+                <div>
+                    {{fm.label}}
+                    {{fm}}
+                    {{fm.errors|striptags}}
+                </div>
                 {% endfor %}
-                <button class="btn btn-success" type="submit">Create Album</button>
+                <button class="btn btn-success mt-3" type="submit">Create Album</button>
             </form>
         </div>
     </div>

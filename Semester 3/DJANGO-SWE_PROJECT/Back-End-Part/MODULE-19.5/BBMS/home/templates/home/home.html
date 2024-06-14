@@ -3,9 +3,24 @@
 {% block title %}Home{% endblock title %}
 {% block hero_Section %}{% endblock hero_Section %}
 {% block Main_Section %}
-<section>
-    <div class="containner mx-auto p-2">
-        <h2>hello world</h2>
+{% if not user.is_authenticated %}
+<section class="bg-light py-5 d-flex justify-content-center align-items-center" style="height: 67vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h4 class="mb-3">Welcome To</h4>
+                <h2 class="mb-4">Bangladesh Band Music Society</h2>
+                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit officiis,
+                    dolorum est
+                    atque quo quae cum porro cupiditate iure voluptatibus, laudantium a ad enim?</p>
+                <div class=" d-flex justify-content-center gap-2">
+                    <a href="#" class="btn btn-warning btn-lg mr-2">Log In</a>
+                    <a href="#" class="btn btn-info btn-lg">Sign Up</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+{% else %}
+{% endif %}
 {% endblock Main_Section %}
