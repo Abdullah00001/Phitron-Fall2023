@@ -13,7 +13,7 @@
                 {% csrf_token %}
                 <!-- {{form|crispy}} -->
                 {% for fm in form %}
-                {{fm.labeltag}}
+                {{fm.label}}
                 {{fm}}
                 {{fm.errors|striptags}}
                 {% endfor %}
