@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "home",
     "album",
     "musician",
+    "account",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
