@@ -1,0 +1,11 @@
+.form_style{
+    box-shadow: 0 0 20px #3a3939;
+    border-radius: 8px;
+}
+
+.profile_info{
+    width: 450px;
+    border-radius: 14px;
+    box-shadow: 0 0 20px #fadc9c;
+    padding: 18px;
+}

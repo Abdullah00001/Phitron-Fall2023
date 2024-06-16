@@ -17,7 +17,9 @@ INSTRUMENT_CHOICES = (
 class MusicianForm(forms.ModelForm):
     class Meta:
         model = MusicianModel
-        fields = "__all__"
+        exclude = [
+            "author",
+        ]
         labels = {
             "user_first_name": "First Name",
             "user_last_name": "Last Name",

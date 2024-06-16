@@ -1,19 +1,17 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title %}Create Album{% endblock title %}
+{% block title %}Edit Musician Profile{% endblock title %}
 {% block css %}
 
-<link rel="stylesheet" href="{% static 'css/album.css' %}">
+<link rel="stylesheet" href="{% static 'css/musician.css' %}">
 {% endblock css %}
-
 
 {% block Main_Section %}
 <section>
     <div class="container mx-auto p-3">
         <div class="w-50 p-4 mx-auto form_style">
-            <h3>Create Your Album </h3>
-            <h5>Colleborate With Your Favourite Musician</h5>
+            <h6 class="text-center">Update Musician Profile</h6>
             <form method="post" novalidate>
                 {% csrf_token %}
                 <!-- {{form|crispy}} -->
@@ -24,7 +22,7 @@
                     {{fm.errors|striptags}}
                 </div>
                 {% endfor %}
-                <button class="btn btn-success mt-3" type="submit">Create Album</button>
+                <button class="btn btn-success mt-3" type="submit">Update</button>
             </form>
         </div>
     </div>

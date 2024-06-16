@@ -24,9 +24,12 @@
           <div class="navbar-nav gap-2 ms-auto">
             {% if user.is_authenticated %}
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-            <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Profile</a>
             <a class="nav-link active" aria-current="page" href="{% url 'addmusician' %}">Add Musician</a>
             <a class="nav-link active" aria-current="page" href="{% url 'createalbum' %}">Add Album</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Profile</a>
+            <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button style="outline: none;"
+                class="btn px-0" type="submit
+              ">Log Out</button></form>
             {% else %}
             <a class="nav-link active btn btn-warning" aria-current="page" href="{% url 'login' %}">Log In</a>
             <a class="nav-link active btn btn-info" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
@@ -35,6 +38,12 @@
         </div>
       </div>
     </nav>
+    <div class="container mx-auto">
+      {% for msg in messages %}
+      <small class="p-3 text-dark bg-{{msg.tags}} text-center">{{msg}}</small>
+      {% endfor %}
+    </div>
+
     {% block hero_Section %}{% endblock hero_Section %}
   </header>
   <main>
