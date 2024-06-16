@@ -38,6 +38,11 @@ class UpdateAlbumDataView(UpdateView):
         form.save()
         messages.success(self.request, "Album Update Successful")
         return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["id"] = self.object.pk
+        return context
 
 
 @method_decorator(login_required, name="dispatch")
