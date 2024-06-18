@@ -38,8 +38,11 @@
 </section>
 {% endblock hero_section %}
 {% block main_section %}
-<section>
+<section class="mt-4">
     <div class="container mx-auto brands-logo-section">
+        <div class="p-4">
+            <h1 class="text-center text-info">Our Partners</h1>
+        </div>
         <div class="d-flex align-items-center justify-content-between">
             <div class="brands-logo">
                 <img src="{% static 'images/audi.png' %}" alt="">
@@ -63,12 +66,16 @@
     </div>
 </section>
 {% if not user.is_authenticated %}
-<section>
+<section class="mt-4">
     <div class="container mx-auto">
-        <div class="products-section">
-            {% for car in cars %}
+        <div class="p-4">
+            <h1 class="text-center text-info">Our Products</h1>
+        </div>
+        <div class="products-section mt-4">
+            {% for car in unauthenticusers_cars %}
             <div class="card">
-                <img class="card-img-top" src="{{car.car_image.url}}" alt="Card image cap" style="width: 100%; height: 55%;">
+                <img class="card-img-top" src="{{car.car_image.url}}" alt="Card image cap"
+                    style="width: 100%; height: 55%;">
                 <div class="card-body">
                     <h5 class="card-title">{{car.car_name}}</h5>
                     <p class="card-text text-secondary">{{car.car_brand.brand_name}}</p>
@@ -78,6 +85,12 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
+        <div class="text-center p-3 mt-4">
+            <h3>To Browse More Products And Buy Your Favourite One</h3>
+            <span>Please</span>
+            <a href="{% url 'signup' %}" class="btn btn-secondary">Log In</a><span> or </span><a href="{% url 'login' %}"
+                class="btn btn-primary">Sign Up</a>
         </div>
     </div>
 </section>

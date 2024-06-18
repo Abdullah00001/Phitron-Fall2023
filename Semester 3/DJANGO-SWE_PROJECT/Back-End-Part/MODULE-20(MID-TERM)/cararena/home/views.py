@@ -9,9 +9,10 @@ from django.views.generic import ListView
 
 class HomePageView(ListView):
     template_name = "home/home.html"
-    model=CarDetailModel
-    
+    model = CarDetailModel
+
     def get_context_data(self, **kwargs):
-        context= super().get_context_data(**kwargs)
-        context["cars"]=CarDetailModel.objects.order_by('?')[:8]
+        context = super().get_context_data(**kwargs)
+        context["unauthenticusers_cars"] = CarDetailModel.objects.order_by("?")[:8]
+        context["authenticusers_cars"] = CarDetailModel.objects.all()
         return context

@@ -8,6 +8,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
 from django.views.generic import TemplateView
+from django.contrib.auth.views import LogoutView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -103,3 +104,11 @@ class PasswordChangePageView(PasswordChangeView):
             self.request, "Maybe Your Old Password Is encorrect or password not match"
         )
         return super().form_invalid(form)
+
+
+class LogOutView(LogoutView):
+    next_page = "login"
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(self.request, "Log Out Successful")
+        return super().dispatch(request, *args, **kwargs)

@@ -4,8 +4,10 @@ from account.views import (
     LogInPageView,
     ProfilePageView,
     ProfileUpdatePageView,
-    PasswordChangePageView
+    PasswordChangePageView,
+    LogOutView,
 )
+
 
 urlpatterns = [
     path("signup/", SignUpPageView.as_view(), name="signup"),
@@ -13,4 +15,5 @@ urlpatterns = [
     path("profile/", ProfilePageView.as_view(), name="profile"),
     path("edit-profile/", ProfileUpdatePageView.as_view(), name="editprofile"),
     path("Change-Password/", PasswordChangePageView.as_view(), name="changepass"),
+    path("logout/", LogOutView.as_view(), name="logout"),
 ]
