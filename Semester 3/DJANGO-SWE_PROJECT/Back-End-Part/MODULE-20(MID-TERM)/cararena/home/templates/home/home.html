@@ -2,19 +2,92 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block titleBlock %}Home{% endblock titleBlock %}
-{% block custom_css %}{% endblock custom_css %}
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock custom_css %}
 <!-- head -->
 
 
 <!-- body -->
-{% block hero_section %}{% endblock hero_section %}
+{% block hero_section %}
+<section>
+    <div class="container mx-auto hero-section">
+        <div class="row align-items-center ms-auto">
+            <div class="col-6">
+                <h3>Wellcome To <span class="brand-name">Car Arena</span></h3>
+                <p>Discover an extensive range of vehicles that fit your style and budget. Whether you're looking for a
+                    new or used car, we have the perfect match for you.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-light me-2"></i>Wide selection of brands and
+                        models</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-light me-2"></i>Competitive pricing and
+                        financing options</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-light me-2"></i>Expert reviews and vehicle
+                        history reports</li>
+                </ul>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+                {% endif %}
+            </div>
+            <div class="col-6 hero-img">
+                <img src="{% static 'images/9684913.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock hero_section %}
 {% block main_section %}
-<h1>this is home page</h1>
-<p style="width: 500px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero ipsa eos, eveniet voluptatum atque quas quia fugit nisi et pariatur adipisci molestiae eum sapiente, sed illum provident ducimus! Culpa eveniet explicabo doloribus. Consequatur, esse dolor. Ducimus repudiandae temporibus corporis cumque labore iste quaerat impedit autem molestias distinctio consequuntur quibusdam perspiciatis delectus a adipisci, accusamus numquam ut tenetur voluptatum, nihil quae? Saepe maxime, tempora quae ratione, beatae provident blanditiis necessitatibus placeat eum culpa autem tempore voluptate neque, voluptatem consectetur consequatur pariatur? Nemo voluptate facere in nesciunt est. Numquam fuga placeat facilis suscipit eos magni error? Nihil totam, cupiditate quos rem non voluptates animi at dolor? Iste neque cum ut animi eligendi tempora est, quam qui laboriosam in velit eveniet illo omnis tenetur possimus debitis repellendus deleniti sapiente dolorem! Maiores facilis repellat hic quis fugiat ad neque iure, eveniet modi dicta cupiditate labore velit ullam libero voluptatum ducimus tenetur cumque! Corporis quibusdam ipsa odio omnis officia doloribus recusandae consequatur quidem aperiam sapiente consequuntur in eos nostrum eaque laudantium ipsum reiciendis, harum dolorem! Soluta blanditiis veritatis reiciendis non architecto quo quisquam, beatae, quia laudantium quae, facilis dicta dolor commodi voluptatibus. A accusamus iure aliquid quibusdam incidunt praesentium ipsa asperiores consequuntur ad harum? In.</p>
+<section>
+    <div class="container mx-auto brands-logo-section">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="brands-logo">
+                <img src="{% static 'images/audi.png' %}" alt="">
+            </div>
+            <div class="brands-logo">
+                <img src="{% static 'images/bmw.png' %}" alt="">
+            </div>
+            <div class="brands-logo">
+                <img src="{% static 'images/honda.png' %}" alt="">
+            </div>
+            <div class="brands-logo">
+                <img src="{% static 'images/mercedez-benz.png' %}" alt="">
+            </div>
+            <div class="brands-logo">
+                <img src="{% static 'images/nissan.png' %}" alt="">
+            </div>
+            <div class="brands-logo">
+                <img src="{% static 'images/toyota.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% if not user.is_authenticated %}
+<section>
+    <div class="container mx-auto">
+        <div class="products-section">
+            {% for car in cars %}
+            <div class="card">
+                <img class="card-img-top" src="{{car.car_image.url}}" alt="Card image cap" style="width: 100%; height: 55%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.car_name}}</h5>
+                    <p class="card-text text-secondary">{{car.car_brand.brand_name}}</p>
+                    <p class="card-text text-secondary">{{car.car_price}}</p>
+
+                    <a href="#" class="btn btn-primary">Show Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock main_section %}
 <!-- body -->
 
 
 <!-- tale -->
-{% block custom_JS %}{% endblock custom_JS %}
+{% block custom_JS %}
+<script src="https://kit.fontawesome.com/a59ccc9d18.js" crossorigin="anonymous"></script>
+{% endblock custom_JS %}
 <!-- tale -->
