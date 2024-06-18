@@ -1,0 +1,23 @@
+<!-- head -->
+{% extends "home/base.html" %}
+{% load static %}
+{% block titleBlock %}Profile | {{user.first_name}} {{user.last_name}}{% endblock titleBlock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'account/profile.css' %}">
+{% endblock custom_css %}
+<!-- head -->
+
+
+<!-- body -->
+{% block hero_section %}{% endblock hero_section %}
+{% block main_section %}
+<h1>this is profile page</h1>
+<a href="{% url 'editprofile' %}" class="btn btn-outline-dark">Edit Profile</a>
+<a href="{% url 'changepass' %}" class="btn btn-outline-warning">Change Password</a>
+{% endblock main_section %}
+<!-- body -->
+
+
+<!-- tale -->
+{% block custom_JS %}{% endblock custom_JS %}
+<!-- tale -->
