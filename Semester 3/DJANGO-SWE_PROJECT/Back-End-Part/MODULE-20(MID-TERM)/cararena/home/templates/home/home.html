@@ -81,7 +81,7 @@
                     <p class="card-text text-secondary">{{car.car_brand.brand_name}}</p>
                     <p class="card-text text-secondary">{{car.car_price}}</p>
 
-                    <a href="#" class="btn btn-primary">Show Details</a>
+                    <a href="{% url 'detail' car.id %}" class="btn btn-primary">Show Details</a>
                 </div>
             </div>
             {% endfor %}
@@ -89,8 +89,34 @@
         <div class="text-center p-3 mt-4">
             <h3>To Browse More Products And Buy Your Favourite One</h3>
             <span>Please</span>
-            <a href="{% url 'signup' %}" class="btn btn-secondary">Log In</a><span> or </span><a href="{% url 'login' %}"
-                class="btn btn-primary">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn btn-secondary">Log In</a><span> or </span><a
+                href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="mt-4">
+    <div class="container mx-auto">
+        <div class="p-4">
+            <h1 class="text-center text-info">Our Products</h1>
+            {% if user.is_authenticated %}
+            <h3 class="text-center">To Browse Please Scroll</h3>
+            {% endif %}
+        </div>
+        <div class="products-section product-scroll mt-4">
+            {% for car in authenticusers_cars %}
+            <div class="card">
+                <img class="card-img-top" src="{{car.car_image.url}}" alt="Card image cap"
+                    style="width: 100%; height: 55%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.car_name}}</h5>
+                    <p class="card-text text-secondary">{{car.car_brand.brand_name}}</p>
+                    <p class="card-text text-secondary">{{car.car_price}}</p>
+
+                    <a href="{% url 'detail' car.id %}" class="btn btn-primary">Show Details</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

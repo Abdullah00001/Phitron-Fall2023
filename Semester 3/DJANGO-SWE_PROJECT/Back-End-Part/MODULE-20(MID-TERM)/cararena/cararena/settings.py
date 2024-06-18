@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "account",
     "carinfo",
     "carbrand",
+    "comment",
+    "payment",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

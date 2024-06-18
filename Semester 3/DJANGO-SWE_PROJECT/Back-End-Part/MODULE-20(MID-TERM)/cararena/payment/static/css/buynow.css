@@ -1,0 +1,10 @@
+.buynow{
+    width: 500px;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 0 20px #8381814f;
+}
+
+.inner-buynow{
+    padding: 200px 0 200px 0;
+}
