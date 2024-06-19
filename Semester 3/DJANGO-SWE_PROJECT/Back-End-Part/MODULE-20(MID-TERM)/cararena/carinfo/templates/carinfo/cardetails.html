@@ -22,7 +22,9 @@
                 <p class="card-text">{{cardetail.car_description}}</p>
                 <p class="">Quantity : {{cardetail.car_quantity}}</p>
                 <p class=" fw-bold">Price : {{cardetail.car_price}}</p>
+                {% if user.is_authenticated %}
                 <a href="{% url 'payment' cardetail.id %}" class=" d-inline-block btn btn-primary">Buy Now</a>
+                {% endif %}
                 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
                     aria-expanded="false" aria-controls="collapseExample">
                     Check Comments

@@ -24,3 +24,13 @@
     max-height: 1007px;
     overflow-y: scroll;
 }
+
+.filter-brands{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: start;
+    padding: 18px;
+    background-color: lightgray;
+    border-radius: 15px;
+}

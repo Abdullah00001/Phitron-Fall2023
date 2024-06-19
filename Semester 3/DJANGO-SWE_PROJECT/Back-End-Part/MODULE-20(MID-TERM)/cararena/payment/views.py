@@ -3,10 +3,10 @@ from payment.models import PaymentModel
 from carinfo.models import CarDetailModel
 from payment.forms import PaymentForm
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def payment(request, id):
     item = CarDetailModel.objects.get(pk=id)
 
@@ -29,7 +29,7 @@ def payment(request, id):
                     request,
                     "Payment Succesful.You will receive your product withiin 2 days.",
                 )
-                return redirect("home")
+                return redirect("detail", pk=item.pk)
             else:
                 messages.error(request, "Insufficient quantity")
         else:

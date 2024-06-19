@@ -7,18 +7,25 @@ from django.views.generic import FormView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 from django.contrib.auth.views import LogoutView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from payment.models import PaymentModel
 
 # Create your views here.
 
 
 @method_decorator(login_required, name="dispatch")
-class ProfilePageView(TemplateView):
+class ProfilePageView(ListView):
+    model = PaymentModel
     template_name = "account/profile.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["histories"] = PaymentModel.objects.filter(user=self.request.user)
+        return context
 
 
 class SignUpPageView(FormView):
@@ -106,6 +113,7 @@ class PasswordChangePageView(PasswordChangeView):
         return super().form_invalid(form)
 
 
+@method_decorator(login_required, name="dispatch")
 class LogOutView(LogoutView):
     next_page = "login"
 

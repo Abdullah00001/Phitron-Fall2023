@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 {% block titleBlock %}Log In{% endblock titleBlock %}
 {% block custom_css %}
-<link rel="stylesheet" href="{% static 'account/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock custom_css %}
 <!-- head -->
 
@@ -15,7 +15,8 @@
 <section>
     <div class="container mx-auto inner-signup">
         <div class="loginForm mx-auto">
-            <form method="post">
+            <h1 class="text-info text-center">Log In</h1>
+            <form method="post" class="mt-3">
                 {% csrf_token %}
                 <!-- {{form|crispy}} -->
                 {% for fm in form %}
