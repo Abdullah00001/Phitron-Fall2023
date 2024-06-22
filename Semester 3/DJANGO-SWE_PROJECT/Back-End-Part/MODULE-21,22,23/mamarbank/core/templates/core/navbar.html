@@ -11,14 +11,38 @@
                 </div>
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a  href="{% url 'home' %}">Home</a></li>
+                    {% if not user.is_authenticated %}
+                    <li class="text-lg"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="text-lg"><a href="{% url 'register' %}">Registration</a></li>
+                    <li class="text-lg"><a href="{% url 'login' %}">Log In</a></li>
+                    {% else %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button class="text-lg outline-none bg-none">Log Out</button>
+                        </form>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <a class="btn btn-ghost text-xl" href="{% url 'home' %}">Mamar Bank</a>
         </div>
         <div class="navbar-end hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-                <li class="text-lg"><a  href="{% url 'home' %}">Home</a></li>
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="text-lg"><a href="{% url 'register' %}">Registration</a></li>
+                <li class="text-lg"><a href="{% url 'login' %}">Log In</a></li>
+                {% else %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button>Log Out</button>
+                    </form>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
