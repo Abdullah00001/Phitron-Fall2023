@@ -17,6 +17,7 @@
                     <li class="text-lg"><a href="{% url 'login' %}">Log In</a></li>
                     {% else %}
                     <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="text-lg"><a href="{% url 'profile' %}">Profile</a></li>
                     <li>
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
@@ -35,7 +36,8 @@
                 <li class="text-lg"><a href="{% url 'register' %}">Registration</a></li>
                 <li class="text-lg"><a href="{% url 'login' %}">Log In</a></li>
                 {% else %}
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="text-lg"><a href="{% url 'home' %}">Home</a></li>
+                <li class="text-lg"><a href="{% url 'profile' %}">Profile</a></li>
                 <li>
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}

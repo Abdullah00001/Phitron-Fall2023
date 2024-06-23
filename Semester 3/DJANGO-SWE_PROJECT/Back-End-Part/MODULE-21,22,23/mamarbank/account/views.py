@@ -1,14 +1,40 @@
-from django.http import HttpRequest
-from django.http.response import HttpResponse as HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib.auth import login
 from django.views.generic import FormView
 from django.contrib.auth.views import LoginView, LogoutView
-from account.forms import UserRegistrationForm
+from account.forms import UserRegistrationForm, UserUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View
 
 # Create your views here.
+
+
+class UserProfilePageView(View):
+    template_name = "account/profile.html"
+
+    def get(self, request):
+        form = UserUpdateForm(instance=request.user)
+        return render(
+            request,
+            self.template_name,
+            context={
+                "form": form,
+            },
+        )
+
+    def post(self, request):
+        form = UserUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+        return render(
+            request,
+            self.template_name,
+            context={
+                "form": form,
+            },
+        )
 
 
 class UserRegistrationPageView(FormView):
@@ -35,7 +61,3 @@ class UserLoginPageView(LoginView):
 
 class UserLogoutView(LogoutView):
     next_page = "login"
-
-    """ def dispatch(self, request: HttpRequest, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs) """
-
