@@ -1,0 +1,10 @@
+asgiref
+dj-database-url
+Django
+django-email
+django-environ
+psycopg2
+psycopg2-binary
+sqlparse
+typing_extensions
+tzdata
