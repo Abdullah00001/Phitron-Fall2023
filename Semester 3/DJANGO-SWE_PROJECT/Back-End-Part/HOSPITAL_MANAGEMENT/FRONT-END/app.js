@@ -28,7 +28,7 @@ const get_slider_content = async () => {
 };
 
 const get_Doctors_List = async (search_value) => {
-  document.getElementById("doctors-list").innerHTML=""
+  document.getElementById("doctors-list").innerHTML = "";
   const fetch_doctors = await fetch(
     `https://smart-care.onrender.com/doctor/list/?search=${search_value}`
   );
@@ -106,3 +106,5 @@ get_slider_content();
 get_Doctors_List("");
 get_DoctorsBy_Designation();
 get_Doctors_BySpcialization();
+
+
