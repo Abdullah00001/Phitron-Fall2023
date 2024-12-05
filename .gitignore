@@ -4,40 +4,30 @@
 *.pyd
 __pycache__/
 
-# Ignore environment files
-*.env
-
-# Ignore virtual environments (globally)
+# Ignore virtual environment folders (common names for virtual environments)
 env/
 venv/
 .venv/
 
-# Ignore project-specific Python-related files (in each semester)
-python/sem*/**/__pycache__/
-python/sem*/**/*.pyc
-python/sem*/**/*.pyo
-python/sem*/**/*.pyd
+# Ignore environment variable files
+.env
 
-# Ignore Django-specific files
-python/sem*/sem*/DJANGO-SWE_PROJECT/__pycache__/
-python/sem*/sem*/DJANGO-SWE_PROJECT/*.pyc
-python/sem*/sem*/DJANGO-SWE_PROJECT/*.pyo
-python/sem*/sem*/DJANGO-SWE_PROJECT/*.pyd
+# Ignore directories that may contain temporary files, dependencies, and other unnecessary stuff
+lib/
+script/
 
-# Ignore database files
+# Ignore Django specific files and folders
 *.db
 *.sqlite3
 
 # Ignore log files
 *.log
 
-# Ignore compiled files
+# Ignore compiled Python files (if any)
 *.so
 
-# Ignore .idea directory (PyCharm)
+# Ignore IDE/Editor specific files (if using PyCharm, VS Code, etc.)
 .idea/
-
-# Ignore .vscode directory (VS Code)
 .vscode/
 
 # Ignore Python egg and package distribution directories
@@ -51,8 +41,10 @@ build/
 *.coverage
 *.hypothesis/
 
-# Ignore Django static and media files
+# Ignore static files (created by Django during collectstatic)
 */static/*
+
+# Ignore media files (user-uploaded content in Django)
 */media/*
 
 # Ignore pyenv files
