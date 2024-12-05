@@ -1,2 +1,74 @@
-.venv
-.env
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pdb
+*.log
+*.sqlite3
+*.db
+
+# Virtual Environment
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3
+staticfiles/
+media/
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Coverage reports
+.coverage
+*.coveragerc
+
+# Pytest
+.cache/
+nosetests.xml
+coverage.xml
+*.coveragerc
+
+# VSCode
+.vscode/
+
+# JetBrains (PyCharm, etc.)
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Python build files
+build/
+dist/
+eggs/
+*.egg-info/
+
+# Poetry
+.poetry/
+poetry.lock
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Other
+*.bak
+*.swp
+
+# Ignore lib and script folders
+lib/
+script/
